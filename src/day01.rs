@@ -48,10 +48,7 @@ mod tests {
         (b")())())", -3),
     ];
 
-    const PART_2_EXAMPLES: [(&[u8], i64); 2] = [
-        (b")", 1),
-        (b"()())", 5),
-    ];
+    const PART_2_EXAMPLES: [(&[u8], i64); 2] = [(b")", 1), (b"()())", 5)];
 
     #[test]
     fn part1_examples() {
