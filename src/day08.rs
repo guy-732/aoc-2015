@@ -48,14 +48,16 @@ fn extra_characters_to_encode(s: &[u8]) -> usize {
 
 #[aoc(day8, part1)]
 fn part1(input: &str) -> usize {
-    input.lines()
+    input
+        .lines()
         .map(|line| count_for_string_minus_in_memory(line.as_bytes()))
         .sum()
 }
 
 #[aoc(day8, part2)]
 fn part2(input: &str) -> usize {
-    input.lines()
+    input
+        .lines()
         .map(|line| extra_characters_to_encode(line.as_bytes()))
         .sum()
 }
