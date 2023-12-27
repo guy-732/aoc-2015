@@ -1,4 +1,4 @@
-use std::{io, error::Error};
+use std::{error::Error, io};
 
 use fnv::{FnvHashMap, FnvHashSet};
 
@@ -49,7 +49,8 @@ impl Graph {
 
     fn shortest_hamiltonian_impl(&self, current: usize, mut visited: FnvHashSet<usize>) -> u64 {
         visited.insert(current);
-        self.vertices[current].1
+        self.vertices[current]
+            .1
             .iter()
             .filter_map(|edge| {
                 if visited.contains(&edge.target_vertex) {
@@ -57,7 +58,7 @@ impl Graph {
                 } else {
                     Some(
                         edge.weight
-                            + self.shortest_hamiltonian_impl(edge.target_vertex, visited.clone())
+                            + self.shortest_hamiltonian_impl(edge.target_vertex, visited.clone()),
                     )
                 }
             })
@@ -75,7 +76,8 @@ impl Graph {
 
     fn longest_hamiltonian_impl(&self, current: usize, mut visited: FnvHashSet<usize>) -> u64 {
         visited.insert(current);
-        self.vertices[current].1
+        self.vertices[current]
+            .1
             .iter()
             .filter_map(|edge| {
                 if visited.contains(&edge.target_vertex) {
@@ -83,7 +85,7 @@ impl Graph {
                 } else {
                     Some(
                         edge.weight
-                            + self.longest_hamiltonian_impl(edge.target_vertex, visited.clone())
+                            + self.longest_hamiltonian_impl(edge.target_vertex, visited.clone()),
                     )
                 }
             })
