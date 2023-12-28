@@ -63,7 +63,13 @@ mod tests {
         assert_eq!(expand_look_and_say(vec![1]), vec![1, 1]);
         assert_eq!(expand_look_and_say(vec![1, 1]), vec![2, 1]);
         assert_eq!(expand_look_and_say(vec![2, 1]), vec![1, 2, 1, 1]);
-        assert_eq!(expand_look_and_say(vec![1, 2, 1, 1]), vec![1, 1, 1, 2, 2, 1]);
-        assert_eq!(expand_look_and_say(vec![1, 1, 1, 2, 2, 1]), vec![3, 1, 2, 2, 1, 1]);
+        assert_eq!(
+            expand_look_and_say(vec![1, 2, 1, 1]),
+            vec![1, 1, 1, 2, 2, 1]
+        );
+        assert_eq!(
+            expand_look_and_say(vec![1, 1, 1, 2, 2, 1]),
+            vec![3, 1, 2, 2, 1, 1]
+        );
     }
 }
