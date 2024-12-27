@@ -14,6 +14,8 @@ struct Instruction {
     end_pos: (u32, u32),
 }
 
+type TwoPosition = ((u32, u32), (u32, u32));
+
 #[inline]
 fn parse_position(s: &str) -> Result<(u32, u32), Box<dyn Error>> {
     let Some((first, second)) = s.split_once(',') else {
@@ -24,7 +26,7 @@ fn parse_position(s: &str) -> Result<(u32, u32), Box<dyn Error>> {
 }
 
 #[inline]
-fn parse_range(s: &str) -> Result<((u32, u32), (u32, u32)), Box<dyn Error>> {
+fn parse_range(s: &str) -> Result<TwoPosition, Box<dyn Error>> {
     let Some((first, second)) = s.split_once(" through ") else {
         return Err(format!(r#"{:?} did not contain " through ""#, s).into());
     };
